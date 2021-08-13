@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>长列表的滚动</title>
+    <style>
+        #content{
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        p{
+            width: 100%;
+            height: 20px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <div class="list" id="list">
+            <p>0</p>
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+            <p>6</p>
+            <p>7</p>
+            <p>8</p>
+            <p>9</p>
+            <p>10</p>
+        </div>
+    </div>
+    <script>
+            var list = document.getElementById('list');
+            var content =document.getElementById('content');
+            var size=11;
+            滚动时动态添加
+            content.addEventListener('mouseover',function(){
+                var fragment = document.createDocumentFragment();
+                p = document.createElement('p');
+                var newText=document.createTextNode(size);
+                p.appendChild(newText);
+                size++
+                fragment.appendChild(p);  
+                document.getElementById("list").appendChild(fragment);
+            })
+        
+    </script>
+</body>
+
+</html>
